@@ -10,9 +10,12 @@ endif
 
 syn keyword	randypackTodo	contained TODO FIXME XXX
 
-syn match       randypackComment      "\/\/.*" contains=randypackTodo
+syn match       randypackComment      "\/\/.*" contains=randypackTodo,@Spell
 syn match       randypackHeader	      ".*\:$"
-syn match       randypackLocalPack    ".*\-git "
+syn match       randypackLocalPack    "^.*\-git "
+syn match       randypackLocalPack    "^.*\-svn "
+syn match       randypackLocalPack    "^\s*aur\/\S* "
+syn match       randypackLocalPack    "^\s*local\/\S* "
 
 hi def link randypackComment     Comment
 hi def link randypackTodo        Todo
