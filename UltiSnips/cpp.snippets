@@ -1,0 +1,102 @@
+# ---------------------------------------------------------------------------- #
+# Randy C++ snippets                                                           #
+# ---------------------------------------------------------------------------- #
+
+snippet hello "Hello world playground" b
+#include <iostream>
+#include <memory>
+#include <algorithm>
+#include <vector>
+#include <list>
+#include <unordered_map>
+
+using namespace std;
+
+int main(int argc, char* argv[]) {
+	
+	cout << "Hello World" << endl;
+
+	${VISUAL}${0}
+
+	return 0;
+}
+endsnippet
+
+snippet operator<< "Operator << standard definition" b
+std::ostream &operator<<(std::ostream &stream, const Rational &object) {
+	${VISUAL}${0}
+    return stream;
+}
+endsnippet
+
+snippet con "constructor definition" b
+${1:`!p snip.rv = snip.basename or "class"`}::$1(${2}) {${3}
+}
+${0}
+endsnippet
+
+snippet des "destructor definition" b
+${1:`!p snip.rv = snip.basename or "class"`}::~$1(${2}) {${3}
+}
+${0}
+endsnippet
+
+global !p
+def getter_name_to_variable(inp):
+	if len(inp) == 0:
+		return inp
+	return "%s%s" % (inp[0].lower(), inp[1:])
+endglobal
+
+snippet getter "getter"
+${1:Type} ${2:Name}() const;
+endsnippet
+
+snippet setter "setter"
+void Set${1:Name}(${2:Type} v);
+endsnippet
+
+snippet getseter "getter and setter"
+${1:Type} ${2:Name}() const;
+void Set$2($1 v);
+endsnippet
+
+snippet getsetterin "inline getter and setter"
+${1:Type} ${2:Name}() const {
+	return `!p snip.rv = getter_name_to_variable(t[2])`;
+}
+
+void Set$2($1 v) {
+	`!p snip.rv = getter_name_to_variable(t[2])` = v;
+}
+endsnippet
+
+snippet setterein "setter"
+void Set${1:Name}(${2:Type} v) {
+	`!p snip.rv = getter_name_to_variable(t[1])` = v;
+}
+endsnippet
+
+snippet getterin "inline getter"
+${1:Type} ${2:Name}() const {
+	return `!p snip.rv = getter_name_to_variable(t[2])`;
+}
+endsnippet
+
+snippet scast "Static Cast"
+static_cast<${1}>(${2})${0}
+endsnippet
+
+snippet rcast "Reinterpret Cast"
+reinterpret_cast<${1}>(${2})${0}
+endsnippet
+
+snippet dcast "Dynamic Cast"
+dynamic_cast<${1}>(${2})${0}
+endsnippet
+
+snippet ccast "Const Cast"
+const_cast<${1}>(${2})${0}
+endsnippet
+
+# vim:ft=snippets:
