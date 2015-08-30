@@ -1,0 +1,309 @@
+# vim:ft=snippets:
+# == .NET  =================
+
+snippet list "List<...>"
+List<${1:int}> ${2:name}
+endsnippet
+
+snippet dict "Dictionary<...>"
+Dictionary<${1:int}, ${2:int}> ${3:name}
+endsnippet
+
+# == Debug  =================
+
+snippet dl "Debug.Log( ... );"
+Debug.Log("${1:Message}");
+endsnippet
+
+snippet dlg "Debug.Log( ... , gameObject);" b
+Debug.Log("${1:Message}", gameObject);
+endsnippet
+
+snippet dlf "Debug.Log( ... );"
+Debug.Log(string.Format("${1:Message}", ${2}));
+endsnippet
+
+snippet dle "Debug.LogError( ... );"
+Debug.LogError("${1:Message}");
+endsnippet
+
+snippet dlw "Debug.LogWarning( ... );"
+Debug.LogWarning("${1:Message}");
+endsnippet
+
+# == MonoBehaviour  =================
+
+snippet upd "void Update() { ... }"
+void Update()
+{
+	${1}
+}
+endsnippet
+
+snippet awk "void Awake() { ... }"
+void Awake()
+{
+	${1}
+}
+endsnippet
+
+snippet sta "void Start() { ... }"
+void Start()
+{
+	${1}
+}
+endsnippet
+
+snippet fixed "void FixedUpdate() { ... }"
+void FixedUpdate()
+{
+	${1}
+}
+endsnippet
+
+snippet late "void LateUpdate() { ... }"
+void LateUpdate()
+{
+	${1}
+}
+endsnippet
+
+snippet dis "void OnDisable() { ... }"
+void OnDisable()
+{
+	${1}
+}
+endsnippet
+
+snippet en "void OnEnable() { ... }"
+void OnEnable()
+{
+	${1}
+}
+endsnippet
+
+snippet des "void OnDestroy() { ... }"
+void OnDestroy()
+{
+	${1}
+}
+endsnippet
+
+
+# == Misc ====
+
+snippet gc "GetComponent<Component>();"
+GetComponent<${1:Component}>();
+endsnippet
+
+snippet ac "AddComponent<Component>();"
+AddComponent<${1:Component}>();
+endsnippet
+
+snippet rc "[RequireComponent (typeof(TypeName))]"
+[RequireComponent (typeof(${1:TypeName}))]
+endsnippet
+
+snippet ee "[ExecuteInEditMode]"
+[ExecuteInEditMode]
+endsnippet
+
+snippet sf "[SerializeField] private GameObject _name;"
+[SerializeField]
+private ${1:GameObject} _${2:name};
+${0}
+endsnippet
+
+snippet cor "IEnumerator Coroutine() { ... } "
+IEnumerator ${1:Coroutine}()
+{
+	${2:yield break;}
+}
+
+${0}
+endsnippet
+
+snippet m "void Method() { ... }"
+${1:void} ${2:Methof}(${3:})
+{
+	${0}
+}
+endsnippet
+
+snippet sc "StartCoroutine(Coroutine());"
+StartCoroutine(${1:Coroutine}());
+endsnippet
+
+snippet wait "yield return new WaitForSeconds(...)"
+yield return new WaitForSeconds(${1:time})
+endsnippet
+
+snippet now "float now = Time.sinceLevelLoad;"
+float now = Time.sinceLevelLoad;
+endsnippet
+
+snippet dt "Time.deltaTime"
+Time.deltaTime
+endsnippet
+
+snippet sm "SendMessage(message, null, SendMessageOptions.DontRequireReceiver)"
+SendMessage("${1:message}", ${2:null}, ${3:SendMessageOptions.DontRequireReceiver})
+endsnippet
+
+
+# == Data structures ==========
+
+snippet vec2 "var name = new Vector2(x, y);"
+new Vector2(${1:x}, ${2:y})
+endsnippet
+
+snippet vec3 "var name = new Vector3(x, y);"
+new Vector3(${1:x}, ${2:y}, ${3:z})
+endsnippet
+
+snippet nvec2 "var name = new Vector2(x, y);"
+var ${1:name} = new Vector2(${2:x}, ${3:y});
+endsnippet
+
+snippet nvec3 "var name = new Vector3(x, y);"
+var ${1:name} = new Vector3(${2:x}, ${3:y}, ${4:z});
+endsnippet
+
+snippet nrec "var name = new Vector3(x, y);"
+var ${1:name} = new Rect(${2:x}, ${3:y}, ${4:w}, ${5:h});
+endsnippet
+
+# == Regons =================
+
+
+snippet rs "#region Serializable data"
+
+#region Serializable data
+    ${1}
+#endregion
+
+${0}
+endsnippet
+
+snippet rp "#region Private fields"
+
+#region Private fields
+    ${1}
+#endregion
+
+${0}
+endsnippet
+
+snippet rpu "#region Public methods and properties"
+
+#region Public methods and properties
+    ${1}
+#endregion
+
+${0}
+endsnippet
+
+snippet rm "#region MonoBehaviour methods"
+
+#region MonoBehaviour methods
+    ${1}
+#endregion
+
+${0}
+endsnippet
+
+snippet rr "Bully regions"
+
+#region Serializable data
+#endregion
+
+
+
+#region Private fields
+#endregion
+
+
+
+#region Public methods and properties
+#endregion
+
+
+
+#region MonoBehaviour methods
+#endregion
+
+${0}
+endsnippet
+
+# == High level =================
+
+
+snippet forchilds "#region MonoBehaviour methods"
+foreach (Transform ${1:child} in transform)
+{
+	${0}
+}
+endsnippet
+
+
+# == Defines ==================
+
+snippet useed "#if UNITY_EDITOR \n using UnityEditor;"
+#if UNITY_EDITOR
+	using UnityEditor;
+#endif
+endsnippet
+
+snippet ifed "#if UNITY_EDITOR .. #endif"
+#if UNITY_EDITOR
+	${0}
+#endif
+endsnippet
+
+snippet ifand "#if UNITY_ANDROID .. #endif"
+#if UNITY_ANDROID
+	${0}
+#endif
+endsnippet
+
+snippet ifios "#if UNITY_IOS .. #endif"
+#if UNITY_IOS
+	${0}
+#endif
+endsnippet
+
+# === XML Documentaion ============
+# inline xml documentation
+snippet ///
+/// <summary>
+/// ${0}
+/// </summary>
+endsnippet
+
+snippet <p
+<param name="${1}">${2:$1}</param>
+endsnippet
+
+snippet <ex
+<exception cref="${1:System.Exception}">${2}</exception>
+endsnippet
+
+snippet <r
+<returns>${1}</returns>{
+endsnippet
+
+snippet <s
+<see cref="${1}"/>
+endsnippet
+
+snippet <rem
+<remarks>${1}</remarks>
+endsnippet
+
+snippet <c
+<code>${1}</code>
+endsnippet
+
+
+# === Templates ===================
+# TODO: Simple Monobehaviour, BaseBehaiour, Singletone
