@@ -304,6 +304,24 @@ snippet <c
 <code>${1}</code>
 endsnippet
 
+snippet "emit (\w+)" r
+if (`!p snip.rv = match.group(1)` != null)
+	`!p snip.rv = match.group(1)`();
+
+endsnippet
+
+snippet "emit (\S+) with ((?:\w+)(?:,\s*\w+)*)" r
+if (`!p snip.rv = match.group(1)` != null)
+	`!p snip.rv = match.group(1)`(`!p snip.rv = match.group(2)`);
+endsnippet
+
+# === Unity3d networking snippets ===
+snippet netmsg
+public void On${1:EventHappend}_handler(NetworkMessage netMsg)
+{
+	${2:var} ${3:msg} = netMsg.ReadMessage<${4:StringMessage}>();
+}
+endsnippet
 
 # === Templates ===================
 # TODO: Simple Monobehaviour, BaseBehaiour, Singletone
