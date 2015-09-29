@@ -1,0 +1,3 @@
+gsed -i "/$1/d" "tags"
+ctags -a -f "tags" --c#-kinds=+cimnp --fields=+ianmzS --extra=+fq $2
+open /Applications/MacVim.app --args --servername $3 --remote-send ":UpdateTypesFileOnly<CR>"
