@@ -323,5 +323,23 @@ public void On${1:EventHappend}_handler(NetworkMessage netMsg)
 }
 endsnippet
 
+# === Panels generator snippets ===
+snippet panels
+Panels panels = new Panels()
+{
+	Groups = new PanelsGroup[]
+	{
+		${0}
+	}
+};
+endsnippet
+
+snippet panel
+new PanelsGroup { name = "${1:PanelsGroupName}", panels = new string[] {"${2:PanelName}"} },
+endsnippet
+
+snippet "todo impl" r
+//TODO: Implement it!
+endsnippet
 # === Templates ===================
 # TODO: Simple Monobehaviour, BaseBehaiour, Singletone

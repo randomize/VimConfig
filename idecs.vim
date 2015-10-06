@@ -42,6 +42,7 @@ exec 'set tags+='.g:projectTagsFile
 "" -->
     function! SetProjectSyntax()
         if getfsize(".vim/syntax.vim") >= 0
+
             source .vim/syntax.vim
         endif
     endfunction
@@ -63,7 +64,6 @@ call SetProjectColors()
 
 " working with ctasg around tags
 "
-
 function! UpdateTags()
   let fullpath = expand("%:p")
   exec 'cd '.g:projectDir
@@ -71,11 +71,13 @@ function! UpdateTags()
   let filePath = substitute(fullpath, escape(cwd, '.\'), "", "")
   let escapedFilePath = escape(filePath, '/.')
   let escapedFilePath = substitute(escapedFilePath, '\\/', '\\\\/', "g")
-  let command = "Dispatch .vim/updatetags ".escapedFilePath.' "'.filePath.'" '.v:servername
+  let command = "Dispatch ~/.vim/updatetags ".escapedFilePath.' "'.filePath.'" '.v:servername
   "echo command
-  execute command
+  silent execute command
 endfunction
-command! UpdateProjectHighlight call UpdateTag
+
+command! UpdateProjectHighlight call UpdateTags()
+
 function! UpdateMainTags()
     let cwd = g:projectDir.'/'
     exec "cd ".cwd
@@ -107,20 +109,40 @@ function! UpdateThirdTags( name )
 endfunction
 
 autocmd BufWritePost *.cs,*.cpp,*.h,*.c,*.hpp call UpdateTags()
-autocmd BufReadPost * :call SetProjectSyntax()| call SetProjectColors()
+"autocmd BufReadPost * :call SetProjectSyntax()| call SetProjectColors()
 
 " connect tags lists
 let g:TagHighlightSettings['UserLibraries'] = []
 let g:TagHighlightSettings['UserLibraryDir'] = expand("~/").".vim/highlight"
 let s:libraries = g:TagHighlightSettings['UserLibraries']
 
+function! HLFileName(lib_name)
+    return expand(g:TagHighlightSettings['UserLibraryDir']."/".a:lib_name.".taghl")
+endfunction
+
+function! UpdateLibraryHL(lib_name)
+    let g:TagHighlightSettings['TagFileName'] = expand('~/.vim/tags/'.a:lib_name.".tags")
+    let g:TagHighlightSettings['TypesFileNameForce'] = HLFileName(a:lib_name)
+    UpdateTypesFileOnly
+endfunction
+
+function! CheckHLFile(lib_name)
+    let hl_filename = HLFileName(a:lib_name)
+    if getfsize(hl_filename) == -1
+        call UpdateLibraryHL(a:lib_name)
+    endif
+endfunction
+
 for thirdLibrary in g:thirdTags 
     call add(s:libraries, thirdLibrary[0].'.taghl')
+    call CheckHLFile(thirdLibrary[0])
+
     let filename = expand("~/.vim/tags/".thirdLibrary[0].".tags")
     if getfsize(filename) >= 0
         exec 'set tags+='.filename
     endif
 endfor
+
 
 function! UpdateLibrariesHL()
     for tl in g:thirdTags
@@ -130,7 +152,7 @@ function! UpdateLibrariesHL()
     endfor
 
     let g:TagHighlightSettings['TagFileName'] = g:projectTagsFile
-    let g:TagHighlightSettings['TypesFileNameForce'] = "types_c.taghl"
+    let g:TagHighlightSettings['TypesFileNameForce'] = "types_cs.taghl"
 endfunction
 
 " -->
@@ -144,7 +166,7 @@ endfunction
 command! UpdateLibrariesTags call UpdateLibrariesTags()
 
 let g:TagHighlightSettings['TagFileName'] = g:projectTagsFile
-let g:TagHighlightSettings['TypesFileNameForce'] = "types_c.taghl"
+let g:TagHighlightSettings['TypesFileNameForce'] = "types_cs.taghl"
 "-->
 "function! UpdateProjectHL()
 
