@@ -47,6 +47,13 @@ void Awake()
 }
 endsnippet
 
+snippet gui "void OnGUI() { ... }"
+void OnGUI()
+{
+	${1}
+}
+endsnippet
+
 snippet sta "void Start() { ... }"
 void Start()
 {
@@ -175,6 +182,15 @@ endsnippet
 
 # == Regons =================
 
+
+snippet re "#region Events"
+
+#region Events
+    ${1}
+#endregion
+
+${0}
+endsnippet
 
 snippet rs "#region Serializable data"
 
@@ -341,5 +357,10 @@ endsnippet
 snippet "todo impl" r
 //TODO: Implement it!
 endsnippet
+
+snippet rn "return null;"
+return null;
+endsnippet
+
 # === Templates ===================
 # TODO: Simple Monobehaviour, BaseBehaiour, Singletone
