@@ -96,7 +96,20 @@ void OnDestroy()
 }
 endsnippet
 
+snippet func "private void Function() { ... }"
+void ${1:Function}()
+{
+	${2}
+}
+endsnippet
 
+snippet pfunc "public void Function() { ... }"
+public void ${1:Function}()
+{
+	${2}
+}
+
+endsnippet
 # == Misc ====
 
 snippet gc "GetComponent<Component>();"
@@ -355,7 +368,7 @@ new PanelsGroup { name = "${1:PanelsGroupName}", panels = new string[] {"${2:Pan
 endsnippet
 
 snippet "todo impl" r
-//TODO: Implement it!
+//TODO: Implement ${1}!!!
 endsnippet
 
 snippet rn "return null;"
