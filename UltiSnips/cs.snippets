@@ -40,77 +40,77 @@ endsnippet
 snippet upd "void Update() { ... }"
 void Update()
 {
-    ${1}
+	${1}
 }
 endsnippet
 
 snippet awk "void Awake() { ... }"
 void Awake()
 {
-    ${1}
+	${1}
 }
 endsnippet
 
 snippet gui "void OnGUI() { ... }"
 void OnGUI()
 {
-    ${1}
+	${1}
 }
 endsnippet
 
 snippet sta "void Start() { ... }"
 void Start()
 {
-    ${1}
+	${1}
 }
 endsnippet
 
 snippet fixed "void FixedUpdate() { ... }"
 void FixedUpdate()
 {
-    ${1}
+	${1}
 }
 endsnippet
 
 snippet late "void LateUpdate() { ... }"
 void LateUpdate()
 {
-    ${1}
+	${1}
 }
 endsnippet
 
 snippet dis "void OnDisable() { ... }"
 void OnDisable()
 {
-    ${1}
+	${1}
 }
 endsnippet
 
 snippet en "void OnEnable() { ... }"
 void OnEnable()
 {
-    ${1}
+	${1}
 }
 endsnippet
 
 snippet des "void OnDestroy() { ... }"
 void OnDestroy()
 {
-    ${1}
+	${1}
 }
 endsnippet
 
 snippet func "private void Function() { ... }"
 void ${1:Function}()
 {
-    ${2}
+	${2}
 }
 endsnippet
 
 snippet pfunc "public void Function() { ... }"
 public void ${1:Function}()
 {
-    ${2}
+	${2}
 }
 
 endsnippet
@@ -141,7 +141,7 @@ endsnippet
 snippet cor "IEnumerator Coroutine() { ... } "
 IEnumerator ${1:Coroutine}()
 {
-    ${2:yield break;}
+	${2:yield break;}
 }
 
 ${0}
@@ -150,7 +150,7 @@ endsnippet
 snippet m "void Method() { ... }"
 ${1:void} ${2:Methof}(${3:})
 {
-    ${0}
+	${0}
 }
 endsnippet
 
@@ -203,7 +203,7 @@ endsnippet
 snippet re "#region Events"
 
 #region Events
-    ${1}
+	${1}
 #endregion
 
 ${0}
@@ -212,7 +212,7 @@ endsnippet
 snippet rs "#region Serializable data"
 
 #region Serializable data
-    ${1}
+	${1}
 #endregion
 
 ${0}
@@ -221,7 +221,7 @@ endsnippet
 snippet rp "#region Private fields"
 
 #region Private fields
-    ${1}
+	${1}
 #endregion
 
 ${0}
@@ -230,7 +230,7 @@ endsnippet
 snippet rpu "#region Public methods and properties"
 
 #region Public methods and properties
-    ${1}
+	${1}
 #endregion
 
 ${0}
@@ -239,7 +239,7 @@ endsnippet
 snippet rm "#region MonoBehaviour methods"
 
 #region MonoBehaviour methods
-    ${1}
+	${1}
 #endregion
 
 ${0}
@@ -274,7 +274,7 @@ endsnippet
 snippet forchilds "#region MonoBehaviour methods"
 foreach (Transform ${1:child} in transform)
 {
-    ${0}
+	${0}
 }
 endsnippet
 
@@ -283,25 +283,25 @@ endsnippet
 
 snippet useed "#if UNITY_EDITOR \n using UnityEditor;"
 #if UNITY_EDITOR
-    using UnityEditor;
+	using UnityEditor;
 #endif
 endsnippet
 
 snippet ifed "#if UNITY_EDITOR .. #endif"
 #if UNITY_EDITOR
-    ${0}
+	${0}
 #endif
 endsnippet
 
 snippet ifand "#if UNITY_ANDROID .. #endif"
 #if UNITY_ANDROID
-    ${0}
+	${0}
 #endif
 endsnippet
 
 snippet ifios "#if UNITY_IOS .. #endif"
 #if UNITY_IOS
-    ${0}
+	${0}
 #endif
 endsnippet
 
@@ -339,20 +339,20 @@ endsnippet
 
 snippet "emit (\w+)" r
 if (`!p snip.rv = match.group(1)` != null)
-    `!p snip.rv = match.group(1)`();
+	`!p snip.rv = match.group(1)`();
 
 endsnippet
 
 snippet "emit (\S+) with ((?:\w+)(?:,\s*\w+)*)" r
 if (`!p snip.rv = match.group(1)` != null)
-    `!p snip.rv = match.group(1)`(`!p snip.rv = match.group(2)`);
+	`!p snip.rv = match.group(1)`(`!p snip.rv = match.group(2)`);
 endsnippet
 
 # === Unity3d networking snippets ===
 snippet netmsg
 public void On${1:EventHappend}_handler(NetworkMessage netMsg)
 {
-    ${2:var} ${3:msg} = netMsg.ReadMessage<${4:StringMessage}>();
+	${2:var} ${3:msg} = netMsg.ReadMessage<${4:StringMessage}>();
 }
 endsnippet
 
@@ -360,10 +360,10 @@ endsnippet
 snippet panels
 Panels panels = new Panels()
 {
-    Groups = new PanelsGroup[]
-    {
-        ${0}
-    }
+	Groups = new PanelsGroup[]
+	{
+		${0}
+	}
 };
 endsnippet
 
@@ -383,24 +383,24 @@ endsnippet
 snippet "pro (\w+)" r
 public ${1:bool} `!p snip.rv = match.group(1)`
 {
-    get
-    {
-        ${2}
-    }
+	get
+	{
+		${2}
+	}
 }
 endsnippet
 
 snippet "pr (\w+)" r
 public ${1:bool} `!p snip.rv = match.group(1)`
 {
-    get
-    {
-        ${2}
-    }
-    set
-    {
-        ${3}
-    }
+	get
+	{
+		${2}
+	}
+	set
+	{
+		${3}
+	}
 }
 endsnippet
 
