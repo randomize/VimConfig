@@ -14,8 +14,8 @@ let g:colors_name = "Monokai_next"
 if v:version >= 700
 	highlight CursorColumn guibg=#3c3d37 gui=NONE
 	highlight CursorLine guibg=#3c3d37 gui=NONE
-	highlight Pmenu guibg=Magenta gui=NONE
-	highlight PmenuSel guibg=#49483e gui=NONE
+	highlight Pmenu guifg=#828282 guibg=#191919 gui=underline
+	highlight PmenuSel guifg=#aaff00 guibg=#3e3e3e gui=underline
 	highlight PmenuSbar guibg=Grey gui=NONE
 	highlight PmenuThumb guibg=White gui=NONE
 	highlight TabLine guibg=DarkGrey gui=underline
@@ -89,12 +89,20 @@ highlight StorageClass guifg=#2E90FF gui=italic
 highlight Class guifg=#F5FF2D
 highlight Method guifg=#FFA500 gui=NONE
 highlight String guifg=#e6db74 gui=NONE
+highlight Property guifg=#e6db74 gui=NONE
+highlight Member guifg=#e6db74 gui=NONE
+highlight Field guifg=#ffffff gui=NONE
 highlight link Structure Type
 highlight Tag guifg=#f92672 gui=NONE
-highlight Todo guifg=#75715e guibg=Yellow gui=bold,reverse
+highlight Todo guifg=Yellow guibg=NONE gui=NONE
+highlight SyntasticWarningSign guifg=Yellow guibg=#3c3d37 gui=NONE
+highlight SyntasticErrorLine guibg=#440000 gui=NONE
+highlight SyntasticErrorSign guifg=#ff0000 guibg=#3c3d37 gui=NONE
+
 highlight Type guifg=#2E90FF gui=NONE
 highlight link Typedef Type
 highlight Underlined guifg=#80a0ff gui=underline
+highlight csAttributeName guifg=#008040 gui=NONE
 
 
 "ColorScheme metadata{{{
