@@ -4,7 +4,7 @@
 (https://github.com/randomize/VimConfig/blob/master/docs/title.png)
 
 Vim configuration files. These are shared between developers in our company.
-Env variable ```$bully_dev``` is used for setting up personal config preferences.
+Env variable `$bully_dev` is used for setting up personal config preferences.
 Config is mostly oriented to Unity development, but also has C++/Rust simple setup.
 Tested to run on GNU/Linux, Mac OS and Windows.
 
@@ -13,7 +13,8 @@ Tested to run on GNU/Linux, Mac OS and Windows.
 
 
 
-Plugins used:
+## Plugins used
+
 
 * [YouCompleteMe](http://github.com/Valloric/YouCompleteMe)
 * [OmniSharp](http://github.com/OmniSharp/omnisharp-vim)
@@ -22,16 +23,41 @@ Plugins used:
 * [Syntastic](http://github.com/scrooloose/syntastic)
 * and many many others
 
+## Features
 
-Setup procedure (TODO: fill-in detailed steps):
+* Extended semantic coloring for C# and Unity specific classes
+* Unity C\# snippets
 
-1) git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+## Setup procedure
 
-2) Compile vimproc
+(TODO: fill-in detailed steps):
 
-3) Compile ycm
+1. git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+2. Compile vimproc
+3. Compile ycm
+4. Compile omnisharp
+5. Setup `$bully_dev` to indicate username
 
-4) Compile omnisharp
+## Hotkeys
+(TODO: fill-in)
 
-5) Setup ```$bully_dev``` to indicate username
+### Main
+Action | Hotkey
+------------ | -------------
+Remove trailing whitespaces | `<leader>rtw`
+Ack | `<leader>a`
 
+### Unity and C# #
+Action | Hotkey
+------------ | -------------
+Goto definition | `<leader>sg`
+Format the code | `<leader>sf`
+
+
+## WIP
+* Unity debugger integration
+* Migrate extended syntax to omnisharp powered
+* Migrate to Roslyn
+
+## License
+GNU GPL Version 3
