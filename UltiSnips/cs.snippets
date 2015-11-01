@@ -405,4 +405,44 @@ public ${1:bool} `!p snip.rv = match.group(1)`
 endsnippet
 
 # === Templates ===================
-# TODO: Simple Monobehaviour, BaseBehaiour, Singletone
+
+snippet mo
+class ${0:MyBehaviour} : BaseBehaviour
+{
+    ${1}
+}
+endsnippet
+
+snippet mob
+class ${0:MyBehaviour} : MonoBehaviour
+{
+    ${1}
+}
+endsnippet
+
+snippet mos
+class ${0:MyBehaviour} : Singleton<${0}>
+{
+    ${1}
+}
+endsnippet
+
+snippet mosp
+class ${0:MyBehaviour} : PersistentSingleton<${0}>
+{
+    ${1}
+}
+endsnippet
+
+# TODO: fix this to have project and name set automatically
+snippet hhh
+//===----------------------------------------------------------------------===//
+//
+//  vim: ft=cs tw=80
+//
+//  Project: VirtualWindow
+//  Date:    `!v strftime("%m/%d/%Y %H:%m:%S")`
+//  Creator: Dmitri Emeliov <demelev@bullyentertainment.com>
+//
+//===----------------------------------------------------------------------===//
+endsnippet
