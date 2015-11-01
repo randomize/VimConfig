@@ -1,8 +1,11 @@
 # Unity Vim Config at Bully! Entertainment
 
+![Image of startify]
+(https://github.com/randomize/VimConfig/blob/master/docs/title.png)
+
 Vim configuration files. These are shared between developers in our company.
-Env variable ```$bully_dev``` is used for setting up personal config preferences
-Mostly oriented to Unity development but also has C++/Rust simple setup.
+Env variable ```$bully_dev``` is used for setting up personal config preferences.
+Config is mostly oriented to Unity development, but also has C++/Rust simple setup.
 Tested to run on GNU/Linux, Mac OS and Windows.
 
 
@@ -23,8 +26,12 @@ Plugins used:
 Setup procedure (TODO: fill-in detailed steps):
 
 1) git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 2) Compile vimproc
+
 3) Compile ycm
+
 4) Compile omnisharp
+
 5) Setup ```$bully_dev``` to indicate username
 
