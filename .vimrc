@@ -164,7 +164,7 @@ Plugin 'tpope/vim-markdown'
 Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'vim-scripts/octave.vim--'
 Plugin 'vim-perl/vim-perl'
-Plugin 'wting/rust.vim'
+Plugin 'rust-lang/rust.vim'
 " Plugin 'andersoncustodio/vim-tmux'
 Plugin 'vim-scripts/Logcat-syntax-highlighter'
 
