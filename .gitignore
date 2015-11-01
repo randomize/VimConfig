@@ -1,0 +1,6 @@
+
+# Ignore Vundle-generated folders
+/bundle
+/view
+/session
+
