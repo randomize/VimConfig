@@ -389,7 +389,7 @@ if has("gui_running")
         endif
     elseif g:os == "Linux"
         if bully_dev == "demelev"
-            set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h14
+            set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 14
         else
             set guifont=PragmataPro\ 12
         endif
@@ -1242,7 +1242,7 @@ endif
 " Appendix
 " ==============================================================================
 if bully_dev == "demelev"
-    colorscheme monokai_next
+    colorscheme Monokai_next
 endif
 
 "function! PreviewWord()
