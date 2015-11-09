@@ -167,6 +167,8 @@ command! UpdateLibrariesTags call UpdateLibrariesTags()
 
 let g:TagHighlightSettings['TagFileName'] = g:projectTagsFile
 let g:TagHighlightSettings['TypesFileNameForce'] = "types_cs.taghl"
+
+set dict+=~/.vim/dicts/unity3d.dict
 "-->
 "function! UpdateProjectHL()
 
