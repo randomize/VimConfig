@@ -60,6 +60,7 @@ endif
 call vundle#begin()
 
 Plugin 'Buffergator'
+Plugin 'ludovicchabant/vim-ctrlp-autoignore'
 
 " let Vundle manage Vundle
 Plugin 'gmarik/Vundle.vim'
@@ -737,7 +738,7 @@ let g:ctrlp_root_markers = ['_vimroot']
 let g:ctrlp_working_path_mode = "r"
 "let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$|.*\.(meta|scene|anim|prefab)$'
 let g:ctrlp_custom_ignore = {
-\ 'file': '\v\.(meta|prefab|png|unity|db)$'
+\ 'file': '\v\.(meta|prefab|png|unity|db)$|[\/]node_modules[\/].*$'
 \ }
 " =========================================================================
 " Helper menus
@@ -826,10 +827,8 @@ nmap <F12> :NERDTreeToggle<CR>
 
 " == Leader mappings =============
 
-" Openbrowser maps
-nmap <leader>sit <Plug>(openbrowser-search)
-
 " CtrlP maps
+" TODO: clear it
 map <A-b> :CtrlPBuffer<cr>
 map <A-m> :CtrlPBufTag<cr>
 map <c-Tab> :tabn<cr>
@@ -920,6 +919,15 @@ nmap <silent> <leader>w :set invwrap<CR>:set wrap?<CR>
 nmap <silent> <leader>] :bn<CR>
 nmap <silent> <leader>[ :bp<CR>
 nmap <silent> <leader>c :bd<CR>
+
+" == Space mappings ==
+
+" Openbrowser maps
+"nmap <leader>qu <Plug>(openbrowser-search)
+nmap <space>sg :OpenBrowserSearch -google <c-r>=expand("<cword>")<cr><cr>
+nmap <space>su :OpenBrowserSearch -unity3d <c-r>=expand("<cword>")<cr><cr>
+nmap <space>ag :OpenBrowserSearch -google 
+nmap <space>au :OpenBrowserSearch -unity3d 
 
 " Faster command access
 nmap <silent> <space> <NOP>
