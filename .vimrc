@@ -353,7 +353,7 @@ set wildcharm=<Tab>
 " Vim's default completion
 set complete+=k
 set complete+=kspell
-set completeopt=menu,menuone,longest,preview
+set completeopt=menu,menuone,longest
 let g:omnicomplete_fetch_documentation=1
 
 " Folding
