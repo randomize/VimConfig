@@ -16,5 +16,10 @@ function! WrapRegion(first, last)
     :startinsert!
 endfunction
 
+function! WrapRegion(first, last, name)
+    call append(a:last, "#endif")
+    call append(a:first-1, "#if ".a:name)
+endfunction
+
 command! -range -nargs=* WrapWithRegion call WrapRegion(<line1>, <line2>)
-"test two
+command! -range -nargs=1 WrapWithIf call WrapRegion(<line1>, <line2>, <args>)

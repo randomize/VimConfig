@@ -857,7 +857,13 @@ nmap <leader>sd :DeleteSession<CR>
 nmap <leader>sc :CloseSession<CR>
 
 
+"TODO: clear there.
 vmap <leader>wr :WrapWithRegion<cr>
+vmap <leader>ifed :WrapWithIf UNITY_EDITOR<cr>
+
+nmap <leader>wr :WrapWithRegion<cr>
+nmap <leader>ifed :WrapWithIf UNITY_EDITOR<cr>
+
 " Toggle things
 " nmap <leader>1 :GundoToggle<CR>
 nmap <leader>1 :UndotreeToggle<CR>
