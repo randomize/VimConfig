@@ -444,16 +444,19 @@ else
    highlight clear SpellLocal
    highlight SpellLocal term=underline cterm=underline
 
-   " Italic comments
-   if g:os == "Linux"
+   " Italic comments on Linux (tmux must support)
+   if g:os == "Linux" && g:bully_dev == "eugene"
        highlight Comment cterm=italic
-   elseif g:os == "Cygwin"
-        " Windows cygwin fix backspac
-        set backspace=indent,eol,start
    endif
 
 
 endif
+
+if g:os == "Cygwin" || g:os == "Windows"
+    " Windows cygwin fix backspac
+    set backspace=indent,eol,start
+endif
+
 " }}}
 
 " =========================================================================
