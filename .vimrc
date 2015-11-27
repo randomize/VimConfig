@@ -86,10 +86,14 @@ Plugin 'derekwyatt/vim-protodef'
 " Todo plugin
 Plugin 'neochrome/todo.vim'
 " Plugin 'vitalk/vim-simple-todo'
+Plugin 'vim-scripts/TaskList.vim'
 
 " Git support
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
+
+" Mercurial support
+Plugin 'mhinz/vim-signify'
 
 Plugin 'tpope/vim-dispatch'
 
@@ -196,6 +200,10 @@ Plugin 'vim-scripts/Improved-AnsiEsc'
 " === C# and Uniy =====================
 Plugin 'OmniSharp/omnisharp-vim'
 Plugin 'OrangeT/vim-csharp'
+
+" === Java Script and HTML =====================
+Plugin 'pangloss/vim-javascript'
+Plugin 'moll/vim-node'
 
 "===== Themes =========================
 " Plugin 'chriskempson/base16-vim' ==== still prefer molokai
@@ -626,6 +634,9 @@ let g:buffergator_suppress_keymaps = 1
 " == NERD Tree ======
 let NERDTreeWinPos='right'
 
+" == Signify ======
+" only use for hg for now 
+let g:signify_vcs_list = [ 'hg' ]
 
 " === Conque Settings =================
 "let g:ConqueTerm_FastMode = 1

@@ -158,8 +158,18 @@ snippet sc "StartCoroutine(Coroutine());"
 StartCoroutine(${1:Coroutine}());
 endsnippet
 
-snippet wait "yield return new WaitForSeconds(...)"
-yield return new WaitForSeconds(${1:time})
+snippet wait "yield return new WaitForSeconds(...);"
+yield return new WaitForSeconds(${1:time});
+endsnippet
+
+snippet yn "yield return null;"
+yield return null;
+endsnippet
+
+snippet but "if (GUILayout.Button(...)) { ... } "
+if (GUILayout.Button("${1:Test}")) {
+	${0}
+}
 endsnippet
 
 snippet now "float now = Time.sinceLevelLoad;"
