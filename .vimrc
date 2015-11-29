@@ -5,7 +5,7 @@
 "
 "   1) play with args and argdo commands (like :args `ag -l foo`)
 "   2) quickfix commands (go, t, i etc)
-"   3) Unite setup
+"   3) Unite setup : file_mru outline history/yank - why not working?
 "   4) unimpaired keys learn
 "   5) vim-multiple-cursors
 "   6) vim-easy-align
@@ -65,7 +65,6 @@ Plugin 'ludovicchabant/vim-ctrlp-autoignore'
 " let Vundle manage Vundle
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'unite-yarm'
 Plugin 'WebAPI.vim'
 Plugin 'open-browser.vim'
 " ColorSchemeEditor
@@ -127,6 +126,9 @@ endif
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'ujihisa/unite-colorscheme'
+Plugin 'Shougo/neoyank.vim'
+Plugin 'Shougo/neomru.vim'
+Plugin 'unite-yarm'
 
 " Indent guides
 Plugin 'nathanaelkane/vim-indent-guides'
@@ -187,6 +189,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'Raimondi/delimitMate'
+Plugin 'justincampbell/vim-eighties'
 
 "if bully_dev != "demelev"
     Plugin 'mhinz/vim-startify'
@@ -550,7 +553,7 @@ let g:unite_split_rule = "botright"
 let g:unite_force_overwrite_statusline = 0
 let g:unite_winheight = 10
 let g:unite_candidate_icon="▷"
-let g:unite_source_rec_async_command= 'ag --nocolor --nogroup --hidden -g ""'
+let g:unite_source_rec_async_command= ['ag', '--follow', '--nocolor', '--nogroup', '--hidden', '-g', '']
 let g:unite_source_history_yank_enable = 1
 
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
@@ -618,14 +621,13 @@ let g:Omnisharp_stop_server  = 0
 let g:OmniSharp_host="http://localhost:20001"
 let g:ycm_csharp_server_port = 20001
 let g:OmniSharp_timeout = 1
-"let g:OmniSharp_server_type = 'v1'
-"let g:OmniSharp_server_type = 'roslyn'
-
-"let g:OmniSharp_server_type = 'v1'
+let g:OmniSharp_server_type = 'v1'
 let g:OmniSharp_server_type = 'roslyn'
 
 if g:bully_dev != "eugene"
     let g:OmniSharp_selector_ui = "ctrlp"
+else 
+    let g:OmniSharp_selector_ui = "unite"
 endif
 
 " === Buffergator ===
@@ -1034,10 +1036,11 @@ nnoremap <leader>ut :<C-u>Unite -no-split -buffer-name=files   -start-insert fil
 nnoremap <leader>ur :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
 nnoremap <leader>uo :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
 nnoremap <leader>uy :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
-nnoremap <leader>ub :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
+nnoremap <leader>ub :<C-u>Unite -buffer-name=buffer  buffer<cr>
 nnoremap <leader>ul :<C-u>Unite -buffer-name=lines  line<cr>
+nnoremap <leader>um :<C-u>Unite -buffer-name=bookmarks  bookmark<cr>
 nnoremap <leader>uc :<C-u>Unite colorscheme<cr>
-nnoremap <leader>uh :<C-u>Unite history/yank<cr>
+nnoremap <leader>uh :<C-u>Unite resume<cr>
 
 " Custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()
