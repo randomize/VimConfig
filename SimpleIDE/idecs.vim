@@ -71,7 +71,14 @@ function! UpdateTags()
   let filePath = substitute(fullpath, escape(cwd, '.\'), "", "")
   let escapedFilePath = escape(filePath, '/.')
   let escapedFilePath = substitute(escapedFilePath, '\\/', '\\\\/', "g")
-  let command = "Dispatch ~/.vim/updatetags ".escapedFilePath.' "'.filePath.'" '.v:servername
+
+  let update_files = {'Windows' : 'updatetags_win.bat',
+                     \'Darwin'  : "updatetags_mac",
+                     \'Linux'   : "updatetags_gnu"}
+
+  let update_file = expand("~/.vim/SimpleIDE/").update_files[g:os]
+  let command = "Dispatch ".update_file." ".escapedFilePath.' "'.filePath.'" '.v:servername
+
   "echo command
   silent execute command
 endfunction
