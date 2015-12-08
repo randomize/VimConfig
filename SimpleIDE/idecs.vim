@@ -1,5 +1,6 @@
 " Конфигурационный файл Vim IDE
 
+let g:ctagsOptions = '--tag-relative -R --c\#-kinds=+cimnp --fields=+ianmzS --extra=+fq '
 " Запрещаем восстановление настроек из сессии,
 " т. к. тогда при изменении ~/.vimrc даже после
 " перезагрузки IDE новые настройки не будут
@@ -65,12 +66,13 @@ call SetProjectColors()
 " working with ctasg around tags
 "
 function! UpdateTags()
-  let fullpath = expand("%:p")
+  "let fullpath = expand("%:.")
+  let filePath = expand("%:.")
   exec 'cd '.g:projectDir
   let cwd = g:projectDir.'/'
-  let filePath = substitute(fullpath, escape(cwd, '.\'), "", "")
-  let escapedFilePath = escape(filePath, '/.')
-  let escapedFilePath = substitute(escapedFilePath, '\\/', '\\\\/', "g")
+  "let filePath = substitute(fullpath, escape(cwd, '.\'), "", "")
+  let escapedFilePath = substitute(filePath, '[\/]', '[\\/]', "g")
+  let escapedFilePath = escape(escapedFilePath, '\/.')
 
   let update_files = {'Windows' : 'updatetags_win.bat',
                      \'Darwin'  : "updatetags_mac",
@@ -80,7 +82,7 @@ function! UpdateTags()
   let command = "Dispatch ".update_file." ".escapedFilePath.' "'.filePath.'" '.v:servername
 
   "echo command
-  silent execute command
+  execute command
 endfunction
 
 command! UpdateProjectHighlight call UpdateTags()
