@@ -626,11 +626,11 @@ let g:OmniSharp_timeout = 1
 let g:OmniSharp_server_type = 'v1'
 let g:OmniSharp_server_type = 'roslyn'
 
-if g:bully_dev != "eugene"
-    let g:OmniSharp_selector_ui = "ctrlp"
-else 
+"if g:bully_dev == "dstavila"
+    "let g:OmniSharp_selector_ui = "ctrlp"
+"else 
     let g:OmniSharp_selector_ui = "unite"
-endif
+"endif
 
 " === Buffergator ===
 let g:buffergator_suppress_keymaps = 1
