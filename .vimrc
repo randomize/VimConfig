@@ -149,7 +149,7 @@ Plugin 'xolox/vim-misc'
 Plugin 'mbbill/undotree'
 
 " Tags for C++/C and others
-Plugin 'majutsushi/tagbar'
+Plugin 'demelev/tagbar'
 
 " Formatting with clanfg format
 Plugin 'rhysd/vim-clang-format'
@@ -564,8 +564,10 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
 \ '\.jpg$', '\.jpeg$', '\.bmp$', '\.png$', '\.gif$',
 \ '\.o$', '\.so$', '\.lo$', '\.lib$', '\.out$', '\.obj$', 
 \ '\.zip$', '\.tar\.gz$', '\.tar\.bz2$', '\.rar$', '\.tar\.xz$',
-\ '\.ac$', '\.cache$', '\.0$', '\.meta$'
+\ '\.ac$', '\.cache$', '\.0$', '\.meta$',
+\ '\.anim$', '\.controller$'
 \ ], '\|'))
+
 " == You complete me ==
 
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
@@ -940,9 +942,6 @@ imap jj <esc>
 nmap <silent> <leader>w :set invwrap<CR>:set wrap?<CR>
 
 " Buffers
-nmap <silent> <leader>] :bn<CR>
-nmap <silent> <leader>[ :bp<CR>
-nmap <silent> <leader>c :bd<CR>
 
 " == Space mappings ==
 
