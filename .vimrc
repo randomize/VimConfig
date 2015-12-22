@@ -755,10 +755,7 @@ command! -nargs=1 OpenURL :call OpenURL(<q-args>)
 let g:ctrlp_extensions = ['autoignore']
 "let g:ctrlp_root_markers = ['_vimroot']
 "let g:ctrlp_working_path_mode = "r"
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$|.*\.(meta|scene|anim|prefab)$'
-"let g:ctrlp_custom_ignore = {
-"\ 'file': '\v\.(meta|prefab|png|unity|db)$|[\/]node_modules[\/].*$'
-"\ }
+"let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$|.*\.(meta|scene|anim|prefab)$'
 
 " =========================================================================
 " Helper menus
