@@ -460,3 +460,11 @@ endsnippet
 snippet cm
 [ContextMenu("${0}")]
 endsnippet
+
+snippet findtag
+GameObject ${1:go} = GameObject.FindWithTag("${2:tagname}");
+if ($1 != null)
+{
+	${0}
+}
+endsnippet
