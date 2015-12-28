@@ -321,7 +321,11 @@ set timeoutlen=1000
 if g:os == "Linux" || g:os == "Darwin"
     let g:dev_temp='/tmp'
 elseif g:os == "Windows"
-    let g:dev_temp=$TMP
+    if g:bully_dev=="dstavila"
+        let g:dev_temp=$VIM_TMP
+    else
+       let g:dev_temp=$TMP
+    endif
 endif
 
 " Backups "Risky but fast
@@ -408,6 +412,8 @@ if has("gui_running")
     elseif g:os == "Windows"
         if bully_dev == "demelev"
             set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h14
+        elseif bully_dev == "dstavila"
+            set guifont=PragmataPro:h12
         else
             set guifont=PragmataPro:h14
         endif
@@ -485,8 +491,10 @@ let g:openbrowser_search_engines = extend(
 
 " == startify ===============
 let g:startify_bookmarks = ['~/.vimrc','~/.zshrc','~/nfo/commands.txt',]
-let g:startify_custom_header =
- \ map(split(system('fortune | cowsay -W 60'), '\n') , '"   ". v:val') + ['','']
+if g:os != "Windows"
+    let g:startify_custom_header =
+                \ map(split(system('fortune | cowsay -W 60'), '\n') , '"   ". v:val') + ['','']
+endif
 let g:startify_change_to_dir = 0
 let g:startify_files_number = 8
 
@@ -875,6 +883,8 @@ nmap <leader>sc :CloseSession<CR>
 "TODO: clear there.
 vmap <leader>wr :WrapWithRegion<cr>
 vmap <leader>ifed :WrapWithIf "UNITY_EDITOR"<cr>
+vmap <leader>ifedd :WrapWithIf 'UNITY_EDITOR \|\| DEVELOPMENT'<cr>
+
 
 nmap <leader>wr :WrapWithRegion<cr>
 nmap <leader>ifed :WrapWithIf "UNITY_EDITOR"<cr>
