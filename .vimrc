@@ -60,6 +60,9 @@ endif
 call vundle#begin()
 
 Plugin 'Buffergator'
+Plugin 'tpope/vim-rails'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'vim-scripts/dbext.vim'
 Plugin 'ludovicchabant/vim-ctrlp-autoignore'
 
 " let Vundle manage Vundle
