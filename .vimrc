@@ -195,7 +195,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'justincampbell/vim-eighties'
 
 "if bully_dev != "demelev"
-    Plugin 'mhinz/vim-startify'
+    Plugin 'demelev/vim-startify'
 "endif
 
 Plugin 'xuhdev/SingleCompile'
@@ -324,7 +324,7 @@ set timeoutlen=1000
 if g:os == "Linux" || g:os == "Darwin"
     let g:dev_temp='/tmp'
 elseif g:os == "Windows"
-    if g:bully_dev=="dstavila"
+    if exists("$VIM_TMP")
         let g:dev_temp=$VIM_TMP
     else
        let g:dev_temp=$TMP
@@ -414,7 +414,7 @@ if has("gui_running")
         endif
     elseif g:os == "Windows"
         if bully_dev == "demelev"
-            set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h14
+            set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
         elseif bully_dev == "dstavila"
             set guifont=PragmataPro:h12
         else
@@ -1299,6 +1299,14 @@ augroup Binary
   au BufWritePost *.bin set nomod | endif
 augroup END
 
+"Function for autoloading project's settings and highlight
+function! g:on_session_loaded(name)
+    if filereadable('.vim/project_settings.vim')
+        exec "source ".expand('~/.vim/SimpleIDE/idecs.vim')
+    endif
+endfunction
+
+"
 "function! PreviewWord()
     "exec ":ptjump ".expand("<cword>")
 "endfunction
