@@ -194,9 +194,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'Raimondi/delimitMate'
 Plugin 'justincampbell/vim-eighties'
 
-"if bully_dev != "demelev"
-    Plugin 'demelev/vim-startify'
-"endif
+Plugin 'mhinz/vim-startify'
 
 Plugin 'xuhdev/SingleCompile'
 Plugin 'vim-scripts/Improved-AnsiEsc'
@@ -1300,11 +1298,12 @@ augroup Binary
 augroup END
 
 "Function for autoloading project's settings and highlight
-function! g:on_session_loaded(name)
+function! On_session_loaded()
     if filereadable('.vim/project_settings.vim')
         exec "source ".expand('~/.vim/SimpleIDE/idecs.vim')
     endif
 endfunction
+autocmd SessionLoadPost * call On_session_loaded()
 
 "
 "function! PreviewWord()
