@@ -410,7 +410,7 @@ if has("gui_running")
         if bully_dev == "demelev"
             set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 14
         else
-            set guifont=PragmataPro\ 12
+            set guifont=PragmataProMono\ 12
         endif
     elseif g:os == "Windows"
         if bully_dev == "demelev"
