@@ -807,22 +807,22 @@ endif
 
 " == Function keys ==============
 
-" Not mapped yet
-nmap <F2>  :call <SID>QuickfixToggle()<cr>
-imap <F2>  <c-o>:call <SID>QuickfixToggle()<cr>
+" F2 for quickfix
+nmap <silent> <F2>  :call <SID>QuickfixToggle()<cr>
+imap <silent> <F2>  <c-o>:call <SID>QuickfixToggle()<cr>
 
 " Translator function
-nmap <F3>  :call TRANSLATE()<cr>
-imap <F3>  <c-o>:call TRANSLATE()<cr>
+nmap <silent> <F3>  :call TRANSLATE()<cr>
+imap <silent> <F3>  <c-o>:call TRANSLATE()<cr>
 
 if g:bully_dev == "demelev"
 
-    " Сохранить файл
+    " Save file
     nmap <F4> :w!<CR>
     imap <F4> <Esc>:w!<CR>
     vmap <F4> <Esc>:w!<CR>
 
-    " Закрыть VIM
+    " Quit vim
     nmap <F5> :q<CR>
     imap <F5> <Esc>:q<CR>
     vmap <F5> <Esc>:q<CR>
@@ -846,10 +846,10 @@ imap <silent> <F9> <C-^>
 nmap <silent> <F10> <ESC>:set list!<CR>
 imap <silent> <F10> <c-o>:set list!<CR>
 
-nmap <F11> :emenu Encoding.<Tab><Tab>
-nmap <S-F11> :emenu FileFormat.<Tab><Tab>
+nmap <silent>  <F11> :emenu Encoding.<Tab><Tab>
+nmap <silent> <S-F11> :emenu FileFormat.<Tab><Tab>
 
-nmap <F12> :NERDTreeToggle<CR>
+nmap <silent> <F12> :NERDTreeToggle<CR>
 
 " == Leader mappings =============
 
