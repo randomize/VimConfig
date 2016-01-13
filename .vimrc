@@ -59,7 +59,9 @@ endif
 
 call vundle#begin()
 
-Plugin 'Buffergator'
+Plugin 'critiqjo/lldb.nvim'
+"Plugin 'vim-scripts/Conque-GDB' "conflicts with nvim
+"Plugin 'Buffergator' "conflicts with nvim
 Plugin 'tpope/vim-rails'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/dbext.vim'
