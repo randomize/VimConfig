@@ -1299,8 +1299,13 @@ augroup END
 
 "Function for autoloading project's settings and highlight
 function! On_session_loaded()
+    if exists("g:project_settings_loaded")
+        return
+    endif
+
     if filereadable('.vim/project_settings.vim')
         exec "source ".expand('~/.vim/SimpleIDE/idecs.vim')
+        let g:project_settings_loaded = 1
     endif
 endfunction
 autocmd SessionLoadPost * call On_session_loaded()
