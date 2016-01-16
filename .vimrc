@@ -60,8 +60,6 @@ endif
 call vundle#begin()
 
 Plugin 'Buffergator'
-Plugin 'tpope/vim-rails'
-Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/dbext.vim'
 Plugin 'ludovicchabant/vim-ctrlp-autoignore'
 
@@ -208,6 +206,11 @@ Plugin 'OrangeT/vim-csharp'
 " === Java Script and HTML =====================
 Plugin 'pangloss/vim-javascript'
 Plugin 'moll/vim-node'
+
+" === Ruby ================================
+Plugin 'tpope/vim-rails'
+Plugin 'vim-ruby/vim-ruby'
+
 
 "===== Themes =========================
 " Plugin 'chriskempson/base16-vim' ==== still prefer molokai
