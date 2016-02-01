@@ -100,6 +100,13 @@ void OnDestroy()
 }
 endsnippet
 
+snippet orm "void OnRenerImage(...) { ... }"
+void OnRenderImage(RenderTexture src, RenderTexture dest)
+{
+	Graphics.Blit(src, dest, mat);
+}
+endsnippet
+
 snippet func "private void Function() { ... }"
 void ${1:Function}()
 {

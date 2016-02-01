@@ -640,6 +640,10 @@ let NERDTreeWinPos='right'
 " only use for hg for now 
 let g:signify_vcs_list = [ 'hg' ]
 
+" == Rust completion ======
+let g:ycm_rust_src_path = "/Users/eugene/.cargo/sources/rustc-1.5.0/src"
+
+
 " === Conque Settings =================
 "let g:ConqueTerm_FastMode = 1
 "let g:ConqueTerm_ReadUnfocused = 1
