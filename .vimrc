@@ -60,6 +60,7 @@ endif
 call vundle#begin()
 
 Plugin 'Buffergator'
+Plugin 'vim-scripts/dbext.vim'
 Plugin 'ludovicchabant/vim-ctrlp-autoignore'
 
 " let Vundle manage Vundle
@@ -149,7 +150,7 @@ Plugin 'xolox/vim-misc'
 Plugin 'mbbill/undotree'
 
 " Tags for C++/C and others
-Plugin 'majutsushi/tagbar'
+Plugin 'demelev/tagbar'
 
 " Formatting with clanfg format
 Plugin 'rhysd/vim-clang-format'
@@ -191,9 +192,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'Raimondi/delimitMate'
 Plugin 'justincampbell/vim-eighties'
 
-"if bully_dev != "demelev"
-    Plugin 'mhinz/vim-startify'
-"endif
+Plugin 'mhinz/vim-startify'
 
 Plugin 'xuhdev/SingleCompile'
 Plugin 'vim-scripts/Improved-AnsiEsc'
@@ -207,6 +206,11 @@ Plugin 'OrangeT/vim-csharp'
 " === Java Script and HTML =====================
 Plugin 'pangloss/vim-javascript'
 Plugin 'moll/vim-node'
+
+" === Ruby ================================
+Plugin 'tpope/vim-rails'
+Plugin 'vim-ruby/vim-ruby'
+
 
 "===== Themes =========================
 " Plugin 'chriskempson/base16-vim' ==== still prefer molokai
@@ -321,7 +325,11 @@ set timeoutlen=1000
 if g:os == "Linux" || g:os == "Darwin"
     let g:dev_temp='/tmp'
 elseif g:os == "Windows"
-    let g:dev_temp=$TMP
+    if exists("$VIM_TMP")
+        let g:dev_temp=$VIM_TMP
+    else
+       let g:dev_temp=$TMP
+    endif
 endif
 
 " Backups "Risky but fast
@@ -403,11 +411,13 @@ if has("gui_running")
         if bully_dev == "demelev"
             set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 14
         else
-            set guifont=PragmataPro\ 12
+            set guifont=PragmataProMono\ 12
         endif
     elseif g:os == "Windows"
         if bully_dev == "demelev"
-            set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h14
+            set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
+        elseif bully_dev == "dstavila"
+            set guifont=PragmataPro:h12
         else
             set guifont=PragmataPro:h14
         endif
@@ -485,8 +495,10 @@ let g:openbrowser_search_engines = extend(
 
 " == startify ===============
 let g:startify_bookmarks = ['~/.vimrc','~/.zshrc','~/nfo/commands.txt',]
-let g:startify_custom_header =
- \ map(split(system('fortune | cowsay -W 60'), '\n') , '"   ". v:val') + ['','']
+if g:os != "Windows"
+    let g:startify_custom_header =
+                \ map(split(system('fortune | cowsay -W 60'), '\n') , '"   ". v:val') + ['','']
+endif
 let g:startify_change_to_dir = 0
 let g:startify_files_number = 8
 
@@ -564,8 +576,10 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
 \ '\.jpg$', '\.jpeg$', '\.bmp$', '\.png$', '\.gif$',
 \ '\.o$', '\.so$', '\.lo$', '\.lib$', '\.out$', '\.obj$', 
 \ '\.zip$', '\.tar\.gz$', '\.tar\.bz2$', '\.rar$', '\.tar\.xz$',
-\ '\.ac$', '\.cache$', '\.0$', '\.meta$'
+\ '\.ac$', '\.cache$', '\.0$', '\.meta$',
+\ '\.anim$', '\.controller$'
 \ ], '\|'))
+
 " == You complete me ==
 
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
@@ -624,11 +638,11 @@ let g:OmniSharp_timeout = 1
 let g:OmniSharp_server_type = 'v1'
 let g:OmniSharp_server_type = 'roslyn'
 
-if g:bully_dev != "eugene"
-    let g:OmniSharp_selector_ui = "ctrlp"
-else 
+"if g:bully_dev == "dstavila"
+    "let g:OmniSharp_selector_ui = "ctrlp"
+"else 
     let g:OmniSharp_selector_ui = "unite"
-endif
+"endif
 
 " === Buffergator ===
 let g:buffergator_suppress_keymaps = 1
@@ -757,10 +771,7 @@ command! -nargs=1 OpenURL :call OpenURL(<q-args>)
 let g:ctrlp_extensions = ['autoignore']
 "let g:ctrlp_root_markers = ['_vimroot']
 "let g:ctrlp_working_path_mode = "r"
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$|.*\.(meta|scene|anim|prefab)$'
-"let g:ctrlp_custom_ignore = {
-"\ 'file': '\v\.(meta|prefab|png|unity|db)$|[\/]node_modules[\/].*$'
-"\ }
+"let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$|.*\.(meta|scene|anim|prefab)$'
 
 " =========================================================================
 " Helper menus
@@ -803,22 +814,22 @@ endif
 
 " == Function keys ==============
 
-" Not mapped yet
-nmap <F2>  :call <SID>QuickfixToggle()<cr>
-imap <F2>  <c-o>:call <SID>QuickfixToggle()<cr>
+" F2 for quickfix
+nmap <silent> <F2>  :call <SID>QuickfixToggle()<cr>
+imap <silent> <F2>  <c-o>:call <SID>QuickfixToggle()<cr>
 
 " Translator function
-nmap <F3>  :call TRANSLATE()<cr>
-imap <F3>  <c-o>:call TRANSLATE()<cr>
+nmap <silent> <F3>  :call TRANSLATE()<cr>
+imap <silent> <F3>  <c-o>:call TRANSLATE()<cr>
 
 if g:bully_dev == "demelev"
 
-    " Сохранить файл
+    " Save file
     nmap <F4> :w!<CR>
     imap <F4> <Esc>:w!<CR>
     vmap <F4> <Esc>:w!<CR>
 
-    " Закрыть VIM
+    " Quit vim
     nmap <F5> :q<CR>
     imap <F5> <Esc>:q<CR>
     vmap <F5> <Esc>:q<CR>
@@ -842,10 +853,10 @@ imap <silent> <F9> <C-^>
 nmap <silent> <F10> <ESC>:set list!<CR>
 imap <silent> <F10> <c-o>:set list!<CR>
 
-nmap <F11> :emenu Encoding.<Tab><Tab>
-nmap <S-F11> :emenu FileFormat.<Tab><Tab>
+nmap <silent>  <F11> :emenu Encoding.<Tab><Tab>
+nmap <silent> <S-F11> :emenu FileFormat.<Tab><Tab>
 
-nmap <F12> :NERDTreeToggle<CR>
+nmap <silent> <F12> :NERDTreeToggle<CR>
 
 " == Leader mappings =============
 
@@ -880,6 +891,8 @@ nmap <leader>sc :CloseSession<CR>
 "TODO: clear there.
 vmap <leader>wr :WrapWithRegion<cr>
 vmap <leader>ifed :WrapWithIf "UNITY_EDITOR"<cr>
+vmap <leader>ifedd :WrapWithIf 'UNITY_EDITOR \|\| DEVELOPMENT'<cr>
+
 
 nmap <leader>wr :WrapWithRegion<cr>
 nmap <leader>ifed :WrapWithIf "UNITY_EDITOR"<cr>
@@ -944,9 +957,6 @@ imap jj <esc>
 nmap <silent> <leader>w :set invwrap<CR>:set wrap?<CR>
 
 " Buffers
-nmap <silent> <leader>] :bn<CR>
-nmap <silent> <leader>[ :bp<CR>
-nmap <silent> <leader>c :bd<CR>
 
 " == Space mappings ==
 
@@ -1294,6 +1304,20 @@ augroup Binary
   au BufWritePost *.bin set nomod | endif
 augroup END
 
+"Function for autoloading project's settings and highlight
+function! On_session_loaded()
+    if exists("g:project_settings_loaded")
+        return
+    endif
+
+    if filereadable('.vim/project_settings.vim')
+        exec "source ".expand('~/.vim/SimpleIDE/idecs.vim')
+        let g:project_settings_loaded = 1
+    endif
+endfunction
+autocmd SessionLoadPost * call On_session_loaded()
+
+"
 "function! PreviewWord()
     "exec ":ptjump ".expand("<cword>")
 "endfunction

@@ -1,6 +1,7 @@
 
 # Ignore Vundle-generated folders
-/bundle
-/view
-/session
+/bundle/
+/view/
+/session/
+/spell/
 

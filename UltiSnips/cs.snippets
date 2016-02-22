@@ -451,7 +451,6 @@ class ${0:MyBehaviour} : PersistentSingleton<${0}>
 }
 endsnippet
 
-# TODO: fix this to have project and name set automatically
 snippet hhh
 //===----------------------------------------------------------------------===//
 //
@@ -461,6 +460,7 @@ snippet hhh
 //  Creator: `git config --global --get "user.name"` <`git config --global --get "user.email"`>
 //
 //===----------------------------------------------------------------------===//
+
 endsnippet
 
 snippet cm
@@ -506,5 +506,13 @@ public class `!p snip.rv = snip.basename or "Untitled"` : MonoBehaviour
 
 #endregion
 
+}
+endsnippet
+
+snippet findtag
+GameObject ${1:go} = GameObject.FindWithTag("${2:tagname}");
+if ($1 != null)
+{
+	${0}
 }
 endsnippet
