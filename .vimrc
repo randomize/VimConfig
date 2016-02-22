@@ -63,8 +63,6 @@ Plugin 'Cofyc/vim-uncrustify'
 Plugin 'vim-scrips/vim-coffee-script'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'Buffergator'
-Plugin 'tpope/vim-rails'
-Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/dbext.vim'
 Plugin 'ludovicchabant/vim-ctrlp-autoignore'
 
@@ -211,6 +209,11 @@ Plugin 'OrangeT/vim-csharp'
 " === Java Script and HTML =====================
 Plugin 'pangloss/vim-javascript'
 Plugin 'moll/vim-node'
+
+" === Ruby ================================
+Plugin 'tpope/vim-rails'
+Plugin 'vim-ruby/vim-ruby'
+
 
 "===== Themes =========================
 " Plugin 'chriskempson/base16-vim' ==== still prefer molokai
@@ -661,6 +664,10 @@ let NERDTreeWinPos='right'
 " == Signify ======
 " only use for hg for now 
 let g:signify_vcs_list = [ 'hg' ]
+
+" == Rust completion ======
+let g:ycm_rust_src_path = "/Users/eugene/.cargo/sources/rustc-1.5.0/src"
+
 
 " === Conque Settings =================
 "let g:ConqueTerm_FastMode = 1

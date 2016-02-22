@@ -1,0 +1,19 @@
+
+global !p
+from vimsnippets import foldmarker, make_box, get_comment_format
+endglobal
+
+snippet todo "A universal TODO reminder" b
+`!p snip.rv = get_comment_format()[0]` TODO: ${1:description} `!p snip.rv = get_comment_format()[2]`
+endsnippet
+
+snippet fixme "A universal FIXME reminder" b
+`!p snip.rv = get_comment_format()[0]` FIXME: ${1:description} `!p snip.rv = get_comment_format()[2]`
+endsnippet
+
+
+snippet eugene "Eugene Mihailenco signautre" b
+Eugene Mihailenco <emihailenco@bullyentertainment.com>
+                  <mihailencoe@gmail.com>
+endsnippet
+

@@ -100,6 +100,13 @@ void OnDestroy()
 }
 endsnippet
 
+snippet orm "void OnRenerImage(...) { ... }"
+void OnRenderImage(RenderTexture src, RenderTexture dest)
+{
+	Graphics.Blit(src, dest, mat);
+}
+endsnippet
+
 snippet func "private void Function() { ... }"
 void ${1:Function}()
 {
@@ -458,6 +465,48 @@ endsnippet
 
 snippet cm
 [ContextMenu("${0}")]
+endsnippet
+
+# Big fat template
+#`!v ExpandSnippet("hhh")` TODO: find a way for expandiing snippet from snippet
+snippet temp "public class FileName : MonoBehaviour"
+hhh${1}
+
+using UnityEngine;
+using System.Collections;
+
+public class `!p snip.rv = snip.basename or "Untitled"` : MonoBehaviour
+{
+
+
+#region Serializable data
+#endregion
+
+
+
+#region Private fields
+#endregion
+
+
+
+#region Public methods and properties
+#endregion
+
+
+
+#region MonoBehaviour methods
+
+    void Start ()
+    {
+    }
+
+    void Update ()
+    {
+    }
+
+#endregion
+
+}
 endsnippet
 
 snippet findtag
