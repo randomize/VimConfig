@@ -457,7 +457,6 @@ snippet hhh
 //
 //  vim: ft=cs tw=80
 //
-//  Project: VirtualWindow
 //  Date:    `!v strftime("%m/%d/%Y %H:%m:%S")`
 //  Creator: `git config --global --get "user.name"` <`git config --global --get "user.email"`>
 //
@@ -466,4 +465,46 @@ endsnippet
 
 snippet cm
 [ContextMenu("${0}")]
+endsnippet
+
+# Big fat template
+#`!v ExpandSnippet("hhh")` TODO: find a way for expandiing snippet from snippet
+snippet temp "public class FileName : MonoBehaviour"
+hhh${1}
+
+using UnityEngine;
+using System.Collections;
+
+public class `!p snip.rv = snip.basename or "Untitled"` : MonoBehaviour
+{
+
+
+#region Serializable data
+#endregion
+
+
+
+#region Private fields
+#endregion
+
+
+
+#region Public methods and properties
+#endregion
+
+
+
+#region MonoBehaviour methods
+
+    void Start ()
+    {
+    }
+
+    void Update ()
+    {
+    }
+
+#endregion
+
+}
 endsnippet
