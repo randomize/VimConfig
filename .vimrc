@@ -59,6 +59,9 @@ endif
 
 call vundle#begin()
 
+Plugin 'Cofyc/vim-uncrustify'
+Plugin 'vim-scrips/vim-coffee-script'
+Plugin 'ryanoasis/vim-devicons'
 Plugin 'Buffergator'
 Plugin 'tpope/vim-rails'
 Plugin 'vim-ruby/vim-ruby'
@@ -248,6 +251,12 @@ filetype plugin indent on
 " =========================================================================
 " {{{
 
+" Eighties settings
+ let g:eighties_bufname_additional_patterns = ['Tagbar']
+
+" Rust completion
+let g:ycm_rust_src_path = "/Users/demelev/Projects/Rust/rustc-1.5.0/src"
+
 " Encoding
 set termencoding=utf-8
 set fileencodings=utf-8,cp1251
@@ -401,12 +410,14 @@ if has("gui_running")
     if g:os == "Darwin"
         if bully_dev == "demelev"
             set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h14
+            "set guifont=Anonymice\ Powerline:h14
         else
             set guifont=PragmataPro:h14
         endif
     elseif g:os == "Linux"
         if bully_dev == "demelev"
             set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 14
+            set guifont=Anonymice\ Powerline:h14
         else
             set guifont=PragmataProMono\ 12
         endif
