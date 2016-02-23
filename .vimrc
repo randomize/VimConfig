@@ -1310,6 +1310,7 @@ function! On_session_loaded()
 endfunction
 autocmd SessionLoadPost * call On_session_loaded()
 
+let g:ycm_rust_src_path = expand("~/.cargo/rust-1.5.0/src")
 "
 "function! PreviewWord()
     "exec ":ptjump ".expand("<cword>")
