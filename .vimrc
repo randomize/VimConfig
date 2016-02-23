@@ -59,9 +59,10 @@ endif
 
 call vundle#begin()
 
+Plugin 'Cofyc/vim-uncrustify'
+Plugin 'vim-scrips/vim-coffee-script'
+Plugin 'ryanoasis/vim-devicons'
 Plugin 'Buffergator'
-Plugin 'tpope/vim-rails'
-Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/dbext.vim'
 Plugin 'ludovicchabant/vim-ctrlp-autoignore'
 
@@ -209,6 +210,11 @@ Plugin 'OrangeT/vim-csharp'
 Plugin 'pangloss/vim-javascript'
 Plugin 'moll/vim-node'
 
+" === Ruby ================================
+Plugin 'tpope/vim-rails'
+Plugin 'vim-ruby/vim-ruby'
+
+
 "===== Themes =========================
 " Plugin 'chriskempson/base16-vim' ==== still prefer molokai
 Plugin 'tomasr/molokai'
@@ -247,6 +253,12 @@ filetype plugin indent on
 " Settings
 " =========================================================================
 " {{{
+
+" Eighties settings
+ let g:eighties_bufname_additional_patterns = ['Tagbar']
+
+" Rust completion
+let g:ycm_rust_src_path = "/Users/demelev/Projects/Rust/rustc-1.5.0/src"
 
 " Encoding
 set termencoding=utf-8
@@ -401,12 +413,14 @@ if has("gui_running")
     if g:os == "Darwin"
         if bully_dev == "demelev"
             set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h14
+            "set guifont=Anonymice\ Powerline:h14
         else
             set guifont=PragmataPro:h14
         endif
     elseif g:os == "Linux"
         if bully_dev == "demelev"
             set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 14
+            set guifont=Anonymice\ Powerline:h14
         else
             set guifont=PragmataProMono\ 12
         endif
@@ -650,6 +664,10 @@ let NERDTreeWinPos='right'
 " == Signify ======
 " only use for hg for now 
 let g:signify_vcs_list = [ 'hg' ]
+
+" == Rust completion ======
+let g:ycm_rust_src_path = "/Users/eugene/.cargo/sources/rustc-1.5.0/src"
+
 
 " === Conque Settings =================
 "let g:ConqueTerm_FastMode = 1
