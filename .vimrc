@@ -60,7 +60,7 @@ endif
 call vundle#begin()
 
 Plugin 'Cofyc/vim-uncrustify'
-Plugin 'vim-scrips/vim-coffee-script'
+Plugin 'vim-scripts/vim-coffee-script'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'Buffergator'
 Plugin 'vim-scripts/dbext.vim'
@@ -143,6 +143,7 @@ Plugin 'godlygeek/tabular'
 
 " Status line
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Session save/restore
 Plugin 'xolox/vim-session'
