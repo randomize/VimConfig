@@ -485,7 +485,7 @@ else
 
 endif
 
-if g:os == "Cygwin" || g:os == "Windows"
+if g:os == "Cygwin" || g:os == "Windows" || g:os == "Darwin"
     " Windows cygwin fix backspac
     set backspace=indent,eol,start
 endif
@@ -877,6 +877,7 @@ nmap <silent> <F12> :NERDTreeToggle<CR>
 map <A-b> :CtrlPBuffer<cr>
 map <A-m> :CtrlPBufTag<cr>
 map <c-Tab> :tabn<cr>
+nnoremap <leader>un vi}<<<esc>
 
 " OmniSharp bindings TODO: compare with Eugene's - CS only!
 nnoremap <leader>fi :OmniSharpFindImplementations<cr>
