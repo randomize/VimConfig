@@ -68,7 +68,7 @@ call vundle#begin()
 Plugin 'critiqjo/lldb.nvim'
 
 Plugin 'Cofyc/vim-uncrustify'
-Plugin 'vim-scrips/vim-coffee-script'
+Plugin 'vim-scripts/vim-coffee-script'
 Plugin 'Buffergator'
 Plugin 'vim-scripts/dbext.vim'
 Plugin 'ludovicchabant/vim-ctrlp-autoignore'
@@ -150,7 +150,7 @@ Plugin 'godlygeek/tabular'
 
 " Status line
 Plugin 'bling/vim-airline'
-
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ryanoasis/vim-devicons'
 
 " Session save/restore
@@ -492,7 +492,7 @@ else
 
 endif
 
-if g:os == "Cygwin" || g:os == "Windows"
+if g:os == "Cygwin" || g:os == "Windows" || g:os == "Darwin"
     " Windows cygwin fix backspac
     set backspace=indent,eol,start
 endif
@@ -884,6 +884,7 @@ nmap <silent> <F12> :NERDTreeToggle<CR>
 map <A-b> :CtrlPBuffer<cr>
 map <A-m> :CtrlPBufTag<cr>
 map <c-Tab> :tabn<cr>
+nnoremap <leader>un vi}<<<esc>
 
 " OmniSharp bindings TODO: compare with Eugene's - CS only!
 nnoremap <leader>fi :OmniSharpFindImplementations<cr>
