@@ -13,7 +13,7 @@
 "   8) vim-perforce
 "
 "   Authors:
-"   Mihailenco Eugene, Dmitrii Emeleov, Dmitrii Stavila
+"   Mihailenco Eugene, Dmitrii Emeliov, Dmitrii Stavila
 "
 "   Credits:
 "   Derek Wyatt, Tim Pope, Vimawesome.com
@@ -24,6 +24,12 @@
 " {{{
 "
 
+if has('nvim')
+    let python_host_prog='/usr/bin/python'
+    command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>") | let g:Guifont="<args>"
+    "Guifont DejaVu\ Sans\ Mono\ for\ Powerline:h14
+    Guifont Consolas\ for\ Powerline:h14
+endif
 
 if !exists("g:os")
     if has("win64") || has("win32") || has("win16")
@@ -59,9 +65,10 @@ endif
 
 call vundle#begin()
 
+Plugin 'critiqjo/lldb.nvim'
+
 Plugin 'Cofyc/vim-uncrustify'
 Plugin 'vim-scripts/vim-coffee-script'
-Plugin 'ryanoasis/vim-devicons'
 Plugin 'Buffergator'
 Plugin 'vim-scripts/dbext.vim'
 Plugin 'ludovicchabant/vim-ctrlp-autoignore'
@@ -144,6 +151,7 @@ Plugin 'godlygeek/tabular'
 " Status line
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'ryanoasis/vim-devicons'
 
 " Session save/restore
 Plugin 'xolox/vim-session'
@@ -413,8 +421,7 @@ if has("gui_running")
 
     if g:os == "Darwin"
         if bully_dev == "demelev"
-            set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h14
-            "set guifont=Anonymice\ Powerline:h14
+            set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h15
         else
             set guifont=PragmataPro:h14
         endif
@@ -485,7 +492,7 @@ else
 
 endif
 
-if g:os == "Cygwin" || g:os == "Windows"
+if g:os == "Cygwin" || g:os == "Windows" || g:os == "Darwin"
     " Windows cygwin fix backspac
     set backspace=indent,eol,start
 endif
@@ -877,6 +884,7 @@ nmap <silent> <F12> :NERDTreeToggle<CR>
 map <A-b> :CtrlPBuffer<cr>
 map <A-m> :CtrlPBufTag<cr>
 map <c-Tab> :tabn<cr>
+nnoremap <leader>un vi}<<<esc>
 
 " OmniSharp bindings TODO: compare with Eugene's - CS only!
 nnoremap <leader>fi :OmniSharpFindImplementations<cr>
@@ -984,6 +992,7 @@ nmap <silent> <space> <NOP>
 nmap <space>;  :
 nmap <space><space>  :
 nmap <silent> <space>w  :w<CR>
+nmap <silent> <space>ss  :SS<CR>
 nmap <silent> <space>q  :q<CR>
 nmap <silent> <space>]  :bn<CR>
 nmap <silent> <space>[  :bp<CR>
