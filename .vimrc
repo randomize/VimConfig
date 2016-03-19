@@ -1333,4 +1333,8 @@ autocmd SessionLoadPost * call On_session_loaded()
 "function! PreviewWord()
     "exec ":ptjump ".expand("<cword>")
 "endfunction
-"
+
+" JSON format
+com! FormatJSON %!python -m json.tool
+" TODO: install vim-format to use clang-format and this thing and other langs
+
