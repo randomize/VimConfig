@@ -25,10 +25,11 @@
 "
 
 if has('nvim')
-    let python_host_prog='/usr/bin/python'
-    command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>") | let g:Guifont="<args>"
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+    "let python_host_prog='/usr/bin/python'
+    "command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>") | let g:Guifont="<args>"
     "Guifont DejaVu\ Sans\ Mono\ for\ Powerline:h14
-    Guifont Consolas\ for\ Powerline:h14
+    "Guifont Consolas\ for\ Powerline:h14
 endif
 
 if !exists("g:os")
