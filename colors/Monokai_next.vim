@@ -64,7 +64,7 @@ highlight Comment guifg=#75715e gui=NONE
 highlight Conditional guifg=#f92672 gui=NONE
 highlight Constant guifg=#ffa0a0 gui=NONE
 highlight link Debug Special
-highlight Define guifg=#f92672 gui=NONE
+highlight Define guifg=#66D9EF ctermfg=81 gui=NONE
 highlight link Delimiter Special
 highlight Error guifg=White guibg=Red gui=NONE
 highlight link Exception Statement
@@ -79,7 +79,8 @@ highlight link Macro PreProc
 highlight Number guifg=#ae81ff gui=NONE
 highlight Operator guifg=#f92672 gui=NONE
 highlight link PreCondit PreProc
-highlight PreProc guifg=#f92672 gui=NONE
+"highlight PreProc guifg=#f92672 gui=NONE
+highlight PreProc gui=bold guifg=#A6E22E
 highlight link Repeat Statement
 highlight Special guifg=#f8f8f2 gui=NONE
 highlight link SpecialChar Special
