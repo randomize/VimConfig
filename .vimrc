@@ -13,7 +13,7 @@
 "   8) vim-perforce
 "
 "   Authors:
-"   Mihailenco Eugene, Dmitrii Emeleov, Dmitrii Stavila
+"   Mihailenco Eugene, Dmitrii Emeliov, Dmitrii Stavila
 "
 "   Credits:
 "   Derek Wyatt, Tim Pope, Vimawesome.com
@@ -24,6 +24,13 @@
 " {{{
 "
 
+if has('nvim')
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+    "let python_host_prog='/usr/bin/python'
+    "command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>") | let g:Guifont="<args>"
+    "Guifont DejaVu\ Sans\ Mono\ for\ Powerline:h14
+    "Guifont Consolas\ for\ Powerline:h14
+endif
 
 if !exists("g:os")
     if has("win64") || has("win32") || has("win16")
@@ -58,6 +65,8 @@ if g:os == "Windows"
 endif
 
 call vundle#begin()
+
+Plugin 'critiqjo/lldb.nvim'
 
 Plugin 'Cofyc/vim-uncrustify'
 Plugin 'vim-scripts/vim-coffee-script'
@@ -413,8 +422,7 @@ if has("gui_running")
 
     if g:os == "Darwin"
         if bully_dev == "demelev"
-            set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h14
-            "set guifont=Anonymice\ Powerline:h14
+            set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h15
         else
             set guifont=PragmataPro:h14
         endif
@@ -985,6 +993,7 @@ nmap <silent> <space> <NOP>
 nmap <space>;  :
 nmap <space><space>  :
 nmap <silent> <space>w  :w<CR>
+nmap <silent> <space>ss  :SS<CR>
 nmap <silent> <space>q  :q<CR>
 nmap <silent> <space>]  :bn<CR>
 nmap <silent> <space>[  :bp<CR>
@@ -1334,4 +1343,8 @@ autocmd SessionLoadPost * call On_session_loaded()
 "function! PreviewWord()
     "exec ":ptjump ".expand("<cword>")
 "endfunction
-"
+
+" JSON format
+com! FormatJSON %!python -m json.tool
+" TODO: install vim-format to use clang-format and this thing and other langs
+
