@@ -61,10 +61,8 @@ call vundle#begin()
 
 Plugin 'Cofyc/vim-uncrustify'
 Plugin 'vim-scripts/vim-coffee-script'
-Plugin 'ryanoasis/vim-devicons'
 Plugin 'Buffergator'
 Plugin 'vim-scripts/dbext.vim'
-Plugin 'ludovicchabant/vim-ctrlp-autoignore'
 
 " let Vundle manage Vundle
 Plugin 'gmarik/Vundle.vim'
@@ -76,6 +74,7 @@ Plugin 'ColorSchemeEditor'
 
 " CtrlP
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'ludovicchabant/vim-ctrlp-autoignore'
 
 " TagHighlight
 Plugin 'demelev/TagHighlight'
@@ -144,6 +143,7 @@ Plugin 'godlygeek/tabular'
 " Status line
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'ryanoasis/vim-devicons'
 
 " Session save/restore
 Plugin 'xolox/vim-session'
