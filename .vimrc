@@ -72,7 +72,6 @@ Plugin 'Cofyc/vim-uncrustify'
 Plugin 'vim-scripts/vim-coffee-script'
 Plugin 'Buffergator'
 Plugin 'vim-scripts/dbext.vim'
-Plugin 'ludovicchabant/vim-ctrlp-autoignore'
 
 " let Vundle manage Vundle
 Plugin 'gmarik/Vundle.vim'
@@ -84,6 +83,7 @@ Plugin 'ColorSchemeEditor'
 
 " CtrlP
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'ludovicchabant/vim-ctrlp-autoignore'
 
 " TagHighlight
 Plugin 'demelev/TagHighlight'
