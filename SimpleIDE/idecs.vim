@@ -71,7 +71,8 @@ function! UpdateTags()
   exec 'cd '.g:projectDir
   let cwd = g:projectDir.'/'
   "let filePath = substitute(fullpath, escape(cwd, '.\'), "", "")
-  let escapedFilePath = substitute(filePath, '[\/]', '[\\/]', "g")
+  "let escapedFilePath = substitute(filePath, '[\/]', '[\\/]', "g")
+  let escapedFilePath = substitute(filePath, '[\/]', '\\/', "g")
   let escapedFilePath = escape(escapedFilePath, '\/.')
 
   let update_files = {'Windows' : 'updatetags_win.bat',
