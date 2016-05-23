@@ -1106,7 +1106,7 @@ else
     noremap <space>gs  :Gstatus<CR>
 endif
 
-autocmd BufEnter *.git\index setlocal cursorline
+autocmd BufEnter *.git/index setlocal cursorline
 
 vmap v <Plug>(expand_region_expand)
 vmap <c-v> <Plug>(expand_region_shrink)
