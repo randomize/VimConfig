@@ -1095,14 +1095,18 @@ vmap <Tab> %
 " Ack on ,a
 nmap <leader>a :Ack<space>
 
+" == Fugitive =======
 if bully_dev != "demelev"
-    " == Fugitive =======
     noremap <leader>gd :Gdiff<CR>
     noremap <leader>gc :Gcommit<CR>
     noremap <leader>gs :Gstatus<CR>
     noremap <leader>gw :Gwrite<CR>
     noremap <leader>gb :Gblame<CR>
+else
+    noremap <space>gs  :Gstatus<CR>
 endif
+
+autocmd BufEnter *.git\index setlocal cursorline
 
 vmap v <Plug>(expand_region_expand)
 vmap <c-v> <Plug>(expand_region_shrink)
@@ -1339,6 +1343,7 @@ function! On_session_loaded()
 endfunction
 autocmd SessionLoadPost * call On_session_loaded()
 
+let g:ycm_rust_src_path = expand("~/.cargo/rust-1.5.0/src")
 "
 "function! PreviewWord()
     "exec ":ptjump ".expand("<cword>")
