@@ -139,7 +139,9 @@ Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'godlygeek/tabular'
 
 " Status line
-Plugin 'bling/vim-airline'
+" Plugin 'bling/vim-airline' - Old Path
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Session save/restore
 Plugin 'xolox/vim-session'
